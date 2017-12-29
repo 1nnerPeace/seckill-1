@@ -16,16 +16,20 @@ CREATE TABLE `seckill` (
   `end_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '秒杀结束时间',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`seckill_id`),
+
   KEY `idx_start_time` (`start_time`),
   KEY `idx_end_time` (`end_time`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=1012 DEFAULT CHARSET=utf8 COMMENT='秒杀库存表';
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='秒杀库存表';
 
 #
 # Data for table "seckill"
 #
 
-INSERT INTO `seckill` VALUES (1012,'1000元秒杀iPhone8',100,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),(1013,'500元秒杀ipad2017',200,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),(1014,'300元秒杀小米6',300,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),(1015,'200元秒杀红米note4x',400,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06');
+INSERT INTO `seckill` VALUES (1000,'1000元秒杀iPhone8',100,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),
+                              (1001,'500元秒杀ipad2017',200,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),
+                              (1002,'300元秒杀小米6',300,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06'),
+                              (1003,'200元秒杀红米note4x',400,'2017-10-01 00:00:00','2017-12-31 00:00:00','2017-12-26 17:13:06');
 
 #
 # Structure for table "success_killed"
