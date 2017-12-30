@@ -2,7 +2,7 @@ package org.seckill.dto;
 
 /**
  *返回类型:
- *暴露秒杀地址
+ *返回暴露秒杀地址的信息
  *
  */
 public class Exposer {

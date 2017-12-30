@@ -26,7 +26,7 @@ public interface SeckillService {
     Seckill getById(long seckillId);
 
     /**
-     * 秒杀开启时输出秒杀接口地址
+     * 秒杀开启时输出秒杀接口地址,
      * 否则输出系统时间和秒杀时间,
      * 防止提前泄露秒杀地址
      * @return 返回Exposer类型内容

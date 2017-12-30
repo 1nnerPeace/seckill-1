@@ -20,41 +20,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by codingBoy on 16/11/28.
- */
+
 @Controller
 @RequestMapping("/seckill")//url:模块/资源/{}/细分
 public class SeckillController
 {
+
     @Autowired
     private SeckillService seckillService;
 
+    //获取列表页
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model)
     {
-        //list.jsp+mode=ModelAndView
-        //获取列表页
+
+
         List<Seckill> list=seckillService.getSeckillList();
         model.addAttribute("list",list);
         return "list";
     }
-
+    //获取详情页
     @RequestMapping(value = "/{seckillId}/detail",method = RequestMethod.GET)
     public String detail(@PathVariable("seckillId") Long seckillId, Model model)
     {
         if (seckillId == null)
         {
-            return "redirect:/seckill/list";
+            return "redirect:/seckill/list";//重定向
         }
 
         Seckill seckill=seckillService.getById(seckillId);
         if (seckill==null)
         {
-            return "forward:/seckill/list";
+            return "forward:/seckill/list"; //请求转发
         }
 
-        model.addAttribute("seckill",seckill);
+        model.addAttribute("seckill",seckill); //将商品展示到detail详情页
 
         return "detail";
     }
@@ -68,6 +68,8 @@ public class SeckillController
     {
         SeckillResult<Exposer> result;
         try{
+
+            //获得new Exposer(true, md5, seckillId);
             Exposer exposer=seckillService.exportSeckillUrl(seckillId);
             result=new SeckillResult<Exposer>(true,exposer);
         }catch (Exception e)

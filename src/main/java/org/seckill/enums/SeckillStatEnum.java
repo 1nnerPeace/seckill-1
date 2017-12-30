@@ -1,7 +1,11 @@
 package org.seckill.enums;
 /**
- * 使用枚举表述常量数据字典
+ * 使用枚举表述常量数据字典,
+ * state和stateInfo参数信息应该是输出给前端的，
+ * 但是我们不想在我们的return代码中硬编码这两个参数
+ * 所以我们应该考虑用枚举的方式将这些常量封装起来创建一个枚举类型:
  */
+
 public enum SeckillStatEnum {
 
     SUCCESS(1,"秒杀成功"),

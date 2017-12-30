@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class SuccessKilled {
 
-    private long seckillId;//秒杀成功的id
+    private long seckillId;
     private long userPhone;
     private short state;
     private Date createTime;
