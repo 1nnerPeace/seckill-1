@@ -2,6 +2,7 @@ package org.seckill.dao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 //用的mybatis的param
@@ -26,5 +27,4 @@ public interface SeckillDao {
      * 根据偏移量查询秒杀商品列表,例如只查询4个商品
      */
     List<Seckill> queryAll(@Param("offset") int offset,@Param("limit") int limit);
-
 }
