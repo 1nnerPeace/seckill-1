@@ -1,6 +1,6 @@
 package org.seckill.exception;
 /**
- *秒杀关闭异常
+ *秒杀关闭异常(运行期异常)
  */
 public class SeckillCloseException extends SeckillException{
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!-- 引入jstl -->
-<%@include file="common/tag.jsp"%>
+<%@include file="common/tag.jsp"%> <%--静态包含,转换为一个servlet--%>
 
 <!DOCTYPE html>
 <html>
@@ -11,16 +11,16 @@
 </head>
 <body>
 <!-- 页面显示部分 -->
-<div class="container">
-    <div class="panel panel-default">
+<div class="container"> <%-- class=container ,bootstrap的外围容器 栅格化布局的基础--%>
+    <div class="panel panel-default"> <%--面板--%>
         <div class="panel-heading text-center">
             <h2>秒杀列表</h2>
         </div>
         <div class="panel-body">
             <table class="table table-hover">
-                <thead>
+                <thead> <%--thread表格的页眉 ,tbody表格的页脚--%>
                 <tr>
-                    <th>名称</th>
+                    <th>名称</th> <%--表头th--%>
                     <th>库存</th>
                     <th>开始时间</th>
                     <th>结束时间</th>
@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                 <c:forEach var="sk" items="${list}">
-                    <tr>
+                    <tr><%--tr表示行,td列--%>
                         <td>${sk.name}</td>
                         <td>${sk.number}</td>
                         <td><fmt:formatDate value="${sk.startTime}"

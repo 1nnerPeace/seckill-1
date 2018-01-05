@@ -1,7 +1,7 @@
 package org.seckill.dto;
 
 /**
- *
+ * VO 视图对象，用于展示层，它的作用是把某个指定页面（或组件）的所有数据封装起来。
  *所有ajax请求返回类型,封装json结果
  * @param <T>
  */

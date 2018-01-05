@@ -5,11 +5,11 @@
     <insert id="insertSuccessKilled">
         <!-- 当出现主键冲突(及重复秒杀时),会报错;不想让程序报错加入ignore -->
         insert ignore into success_killed(seckill_id,user_phone,state)
-        values(#{seckillId},#{userPhone},0)
+        values(#{seckillId},#{userPhone},0)<!--0表示成功-->
     </insert>
 
     <!-- 如何告诉mybatis把结果映射到SuccessKilled,同时映射seckill属性 -->
-
+    <!--根据id和userPhone查询SuccessKilled并携带Seckill实体-->
     <select id="queryByIdWithSeckill" resultType="SuccessKilled">
         select
         sk.seckill_id,

@@ -21,6 +21,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
+/**
+ * 用注解形式
+ */
 @Service
 public class SeckillServiceImpl implements SeckillService {
     // 日志对象写出来
@@ -48,14 +51,14 @@ public class SeckillServiceImpl implements SeckillService {
 
         //先通过id查询获得单个商品具体信息
         Seckill seckill = seckillDao.queryById(seckillId);
-
+        //先进行对象是否为空的判断
         if (seckill == null) {
             return new Exposer(false, seckillId);
         }
         //获取数据库的商品开始时间和结束时间,与系统当前时间进行逻辑判断
         Date startTime = seckill.getStartTime();
         Date endtime = seckill.getEndTime();
-        // 当前系统时间
+        // 当前系统时间=killTime
         Date nowTime = new Date();
         if (nowTime.getTime() < startTime.getTime() || nowTime.getTime() > endtime.getTime()) {
             return new Exposer(false, seckillId, nowTime.getTime(), startTime.getTime(), endtime.getTime());
@@ -69,13 +72,14 @@ public class SeckillServiceImpl implements SeckillService {
     private String getMD5(long seckillId) {
         String base = seckillId +"/"+ salt;
         String md5= DigestUtils.md5DigestAsHex(base.getBytes());
+        //spring工具类DigestUtils生成MD5,getBytes二进制
         return md5;
     }
 
     /**
      *使用注解控制事务方法的优点:
      *1.开发团队达成一致约定,明确标注事务方法的编程风格.
-     *2.保证事务方法的执行时间尽可能短,不要穿插其他网络操作,RPC/HTTP请求或者剥离发哦事务方法外部
+     *2.保证事务方法的执行时间尽可能短,不要穿插其他网络操作(redis等),RPC/HTTP请求或者剥离到事务方法外部
      *3.不是所有的方法都需要事务,如只有一条修改操作,只读操作不需要事务控制.
      */
     //执行秒杀,传入商品id ,手机号 MD5

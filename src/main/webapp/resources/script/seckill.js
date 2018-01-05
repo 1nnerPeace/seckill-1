@@ -1,7 +1,7 @@
 //存放主要交互逻辑的js代码
 // javascript 模块化(package.类.方法)
 
-var seckill = {
+var seckill = { //seckill json对象
 
     //封装秒杀相关ajax的url
     URL: {
@@ -26,7 +26,7 @@ var seckill = {
     },
 
     //详情页秒杀逻辑
-    detail: {
+    detail: { //detail属性,init()方法
         //详情页初始化
         init: function (params) {
             //手机验证和登录,计时交互

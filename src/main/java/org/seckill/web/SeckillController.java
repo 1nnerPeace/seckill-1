@@ -31,7 +31,7 @@ public class SeckillController
 
     //获取列表页
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public String list(Model model)
+    public String list(Model model) //model存放数据 list.jsp+model=ModelAndView 建议用String+Model=ModelAndView
     {
 
 
@@ -40,6 +40,7 @@ public class SeckillController
         return "list";
     }
     //获取详情页
+    //带{xxx}占位符的URL,@pathVariable绑定参数传入到URL中
     @RequestMapping(value = "/{seckillId}/detail",method = RequestMethod.GET)
     public String detail(@PathVariable("seckillId") Long seckillId, Model model)
     {
@@ -48,8 +49,8 @@ public class SeckillController
             return "redirect:/seckill/list";//重定向
         }
 
-        Seckill seckill=seckillService.getById(seckillId);
-        if (seckill==null)
+        Seckill seckill=seckillService.getById(seckillId);//通过id获取详情
+        if (seckill==null) //如果用户随便传了一个id,跳转到列表页
         {
             return "forward:/seckill/list"; //请求转发
         }
@@ -59,11 +60,11 @@ public class SeckillController
         return "detail";
     }
 
-    //ajax ,json暴露秒杀接口的方法
+    // 返回json数据,暴露秒杀接口的方法
     @RequestMapping(value = "/{seckillId}/exposer",
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
+    @ResponseBody  /* 该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式(json,xml)后，写入到Response对象的body数据区。*/
     public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long seckillId)
     {
         SeckillResult<Exposer> result;
@@ -87,7 +88,7 @@ public class SeckillController
     @ResponseBody
     public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
                                                    @PathVariable("md5") String md5,
-                                                   @CookieValue(value = "userPhone",required = false) Long userPhone)
+                                                   @CookieValue(value = "userPhone",required = false) Long userPhone)// required=false 不强制有cookie,如果没有cookie也能进入这个方法
     {
         if (userPhone==null)
         {

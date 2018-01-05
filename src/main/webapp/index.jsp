@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: liuxin
-  Date: 2017/12/28
-  Time: 11:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
 <head>
-    <title>Title</title>
+    <style type="text/css">
+        body{
+            background-image: url("http://hd.wallpaperswide.com/thumbs/humpback_whale_jumps_out_of_water-t2.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+        };
+    </style>
 </head>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html>
+

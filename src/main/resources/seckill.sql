@@ -16,7 +16,7 @@ CREATE TABLE `seckill` (
   `end_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '秒杀结束时间',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`seckill_id`),
-
+    #索引,加速查询
   KEY `idx_start_time` (`start_time`),
   KEY `idx_end_time` (`end_time`),
   KEY `idx_create_time` (`create_time`)
@@ -41,7 +41,7 @@ CREATE TABLE `success_killed` (
   `user_phone` bigint(20) NOT NULL COMMENT '用户手机号',
   `state` tinyint(4) NOT NULL DEFAULT '-1' COMMENT '状态标识:-1:无效 0:成功 1:已付款 2:已发货',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  PRIMARY KEY (`seckill_id`,`user_phone`),
+  PRIMARY KEY (`seckill_id`,`user_phone`),#联合组建:id和手机号双主键确定唯一性
   KEY `idx_create_time` (`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='秒杀成功明细表';
 

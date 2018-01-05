@@ -11,10 +11,11 @@ public interface SeckillDao {
 
     /**
      * 秒杀成功后减库存 number-1 ,通过killtime进行秒杀判断
-     * killtime对应数据库create_time
-     * @return 有返回值 1=(true) 表示减库存成功
+     * killtime对应数据库=create_time
+     * @return 有返回值 1=(true) 表示减库存成功,进行后续判断
      */
     int reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);
+    //有多个参数传进去时必须用@param指定对应的entity属性,不然查找不到,单个时候可以不指定
 
     /**
      * 根据id查询秒杀对象

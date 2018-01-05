@@ -17,23 +17,29 @@ public interface SeckillService {
 
     /**
      * 查询所有秒杀记录
+     * 调用seckillDao.queryAll()方法
      */
     List<Seckill> getSeckillList();
 
     /**
      * 查询单个秒杀记录
+     * 调用seckillDao.queryById()方法
      */
     Seckill getById(long seckillId);
 
-    /**
+    /**详情页,调用seckillDao.queryById()方法
      * 秒杀开启时输出秒杀接口地址,
      * 否则输出系统时间和秒杀时间,
      * 防止提前泄露秒杀地址
      * @return 返回Exposer类型内容
      */
     Exposer exportSeckillUrl(long seckillId);
+
     /**
-     * 执行秒杀操作
+     * 执行秒杀操作调用
+     * seckillDao.reduceNumber()
+     * successKilledDao.insertSuccessKilled()
+     * successKilledDao.queryByIdWithSeckill()方法
      * @return 返回SeckillExecution类
      */
     SeckillExecution executeSeckill(long seckillId,long userPhone,String md5) throws SeckillException,RepeatKillException,SeckillCloseException;

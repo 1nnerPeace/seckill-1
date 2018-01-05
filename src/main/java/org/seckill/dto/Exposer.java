@@ -2,7 +2,7 @@ package org.seckill.dto;
 
 /**
  *返回类型:
- *返回暴露秒杀地址的信息
+ *返回暴露秒杀地址的信息,浏览器,View层面
  *
  */
 public class Exposer {
@@ -22,12 +22,13 @@ public class Exposer {
     /**
      * 不同构造方法方便对象初始化
      * */
+    //暴露地址成功
     public Exposer(boolean exposed, String md5, long seckillId) {
         this.exposed = exposed;
         this.md5 = md5;
         this.seckillId = seckillId;
     }
-
+    //不能暴露,时间不符合
     public Exposer(boolean exposed,long seckillId, long now, long start, long end) {
         this.exposed = exposed;
         this.seckillId=seckillId;
@@ -35,7 +36,7 @@ public class Exposer {
         this.start = start;
         this.end = end;
     }
-
+    //对象为空
     public Exposer(boolean exposed, long seckillId) {
         this.exposed = exposed;
         this.seckillId = seckillId;

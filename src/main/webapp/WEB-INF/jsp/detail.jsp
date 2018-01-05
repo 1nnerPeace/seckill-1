@@ -28,17 +28,17 @@
 
 </div>
 <%-- 登录弹出层,输入电话 --%>
-<div id="killPhoneModal" class="modal fade">
+<div id="killPhoneModal" class="modal fade"><%--模态框（Modal）是覆盖在父窗体上的子窗体--%>
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header"> <%--模态框头部--%>
                 <h3 class="modal-title text-center">
                     <span class="glyphicon glyphicon-phone"></span>秒杀电话:
                 </h3>
             </div>
 
 
-            <div class="modal-body">
+            <div class="modal-body"> <%--模态框body--%>
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
                         <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号码" class="form-control">
@@ -46,8 +46,8 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <span id="killPhoneMessage" class="glyphicon"></span>
+            <div class="modal-footer"><%--模态框底部--%>
+                <span id="killPhoneMessage" class="glyphicon"></span><%--输入错误时,显示出错信息--%>
                 <button type="button" id="killPhoneBtn" class="btn btn-success">
                     <span class="glyphicon glyphicon-phone"></span>
                     提交
@@ -75,7 +75,7 @@
 <script src="${pageContext.request.contextPath}/resources/script/seckill.js"></script>
 
 <script type="text/javascript">
-    $(function () {
+    $(function () { /*jquery*/
 
         //通过EL表达式,传入参数
         seckill.detail.init({

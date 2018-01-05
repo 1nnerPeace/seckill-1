@@ -47,6 +47,7 @@ public class Seckill {
         this.createTime = createTime;
     }
     @Override
+    //单元测试用
     public String toString() {
         return "Seckill [seckillId=" + seckillId + ", name=" + name + ", number=" + number + ", startTime=" + startTime
                 + ", endTime=" + endTime + ", createTime=" + createTime + "]";
