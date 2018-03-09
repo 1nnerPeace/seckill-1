@@ -9,7 +9,7 @@ public class SuccessKilled {
     private short state;
     private Date createTime;
     //多对一.
-    //秒杀成功后一个对象可以查询出对应商品的具体信息
+    //秒杀成功后一个对象可以查询出多个对应商品的具体信息,不只秒杀了单个商品
     private Seckill seckill;
 
     public Seckill getSeckill() {

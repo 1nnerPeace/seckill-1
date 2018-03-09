@@ -26,6 +26,6 @@
         inner join seckill s on sk.seckill_id=s.seckill_id
         where sk.seckill_id=#{seckillId}
         and sk.user_phone=#{userPhone}
-        <!-- inner join 内连接 -->
+        <!-- inner join 内连接两个表之间id相同 -->
     </select>
 </mapper>

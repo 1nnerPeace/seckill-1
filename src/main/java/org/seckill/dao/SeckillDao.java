@@ -12,7 +12,7 @@ public interface SeckillDao {
 
     /**
      * 秒杀成功后减库存 number-1 ,通过killtime进行秒杀判断
-     * killtime对应数据库=create_time
+     * killtime对应数据库success_killed表中的=create_time
      * @return 有返回值 1=(true) 表示减库存成功,进行后续判断
      */
     int reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);

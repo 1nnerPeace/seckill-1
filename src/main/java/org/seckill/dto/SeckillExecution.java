@@ -4,8 +4,9 @@ import org.seckill.entity.SuccessKilled;
 import org.seckill.enums.SeckillStatEnum;
 
 /**
- * 封装执行秒杀后的结果:秒杀成功后的返回信息
- * Created by codingBoy on 16/11/27.
+ * 封装执行秒杀后的结果:
+ * 用于判断秒杀是否成功，成功就返回秒杀成功的所有信息(包括秒杀的商品id、秒杀成功状态、成功信息、用户明细)，
+ * 失败就抛出一个我们允许的异常(重复秒杀异常、秒杀结束异常)
  */
 public class SeckillExecution {
 

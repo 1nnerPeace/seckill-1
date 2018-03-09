@@ -20,6 +20,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Controller开发中的方法完全是对照Service接口方法进行开发的，
+ * 第一个方法用于访问我们商品的列表页，
+ * 第二个方法访问商品的详情页，
+ * 第三个方法用于返回一个json数据，数据中封装了我们商品的秒杀地址
+ * 第四个方法用于封装用户是否秒杀成功的信息，
+ * 第五个方法用于返回系统当前时间。
+ */
 
 @Controller
 @RequestMapping("/seckill")//url:模块/资源/{}/细分
