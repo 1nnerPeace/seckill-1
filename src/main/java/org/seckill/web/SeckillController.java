@@ -3,6 +3,8 @@ package org.seckill.web;
 import java.util.Date;
 import java.util.List;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.dto.SeckillResult;
@@ -11,6 +13,7 @@ import org.seckill.enums.SeckillStatEnum;
 import org.seckill.exception.RepeatKillException;
 import org.seckill.exception.SeckillCloseException;
 import org.seckill.service.SeckillService;
+import org.seckill.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Controller开发中的方法完全是对照Service接口方法进行开发的，
@@ -39,13 +43,16 @@ public class SeckillController
 
     //获取列表页
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public String list(Model model) //model存放数据 list.jsp+model=ModelAndView 建议用String+Model=ModelAndView
+    public ModelAndView list(Page page) //model存放数据 list.jsp+model=ModelAndView 建议用String+Model=ModelAndView
     {
-
-
+        ModelAndView mav=new ModelAndView();
+        PageHelper.offsetPage(page.getStart(),5);
         List<Seckill> list=seckillService.getSeckillList();
-        model.addAttribute("list",list);
-        return "list";
+        int total=(int) new PageInfo(list).getTotal();
+        page.caculateLast(total);
+        mav.addObject("list",list);
+        mav.setViewName("list");
+        return mav;
     }
     //获取详情页
     //带{xxx}占位符的URL,@pathVariable绑定参数传入到URL中

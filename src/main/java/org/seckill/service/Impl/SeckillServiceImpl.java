@@ -45,7 +45,8 @@ public class SeckillServiceImpl implements SeckillService {
 
     //获取所有秒杀商品
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 4);
+        return seckillDao.queryAll();
+        //return seckillDao.queryAll(0, 4);
     }
 
     //通过id获取单个商品

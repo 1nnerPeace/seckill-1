@@ -24,11 +24,10 @@
         select
         seckill_id,name,number,start_time,end_time,create_time
         from seckill
-        order by create_time desc
-        limit #{offset},#{limit}   /* 查询指定数量的秒杀商品*/
-        <!-- order by 排序  asc 升序,desc降序 ,limit限制返回数量 -->
     </select>
-
+    <!--order by create_time desc
+    limit #{offset},#{limit}   /* 查询指定数量的秒杀商品-->
+    <!-- order by 排序  asc 升序,desc降序 ,limit限制返回数量 -->
 
 
 

@@ -52,7 +52,7 @@ public class SeckillDaoTest {
 			Seckill [seckillId=1002, name=300元秒杀小米6, number=300, startTime=Sun Oct 01 00:00:00 CST 2017, endTime=Mon Oct 02 00:00:00 CST 2017, createTime=Mon Dec 25 17:04:04 CST 2017]
 			Seckill [seckillId=1003, name=200元秒杀红米note4x, number=400, startTime=Sun Oct 01 00:00:00 CST 2017, endTime=Mon Oct 02 00:00:00 CST 2017, createTime=Mon Dec 25 17:04:04 CST 2017]
 		 	*/
-        List<Seckill> seckills=seckilldao.queryAll(0, 100);
+        List<Seckill> seckills=seckilldao.queryAll();//0, 100
         for (Seckill seckill : seckills) {
             System.out.println(seckill);
         }

@@ -26,5 +26,6 @@ public interface SeckillDao {
     /**
      * 根据偏移量查询秒杀商品列表,例如只查询4个商品
      */
-    List<Seckill> queryAll(@Param("offset") int offset,@Param("limit") int limit);
+    List<Seckill> queryAll();
+    //@Param("offset") int offset,@Param("limit") int limit
 }
